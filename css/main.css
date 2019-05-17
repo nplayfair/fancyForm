@@ -31,3 +31,15 @@ h1.logo {
   overflow: hidden;
   transition: 0.8s ease-in-out;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0); }
+
+#next-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  font-size: 40px;
+  color: #428bca;
+  float: right;
+  cursor: pointer;
+  z-index: 2; }
+  #next-btn:hover {
+    color: #b9d4ec; }
