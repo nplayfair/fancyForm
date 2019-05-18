@@ -24,8 +24,12 @@ const inputProgress = document.querySelector('#input-progress');
 const progress = document.querySelector('#progress-bar');
 
 // Events
+
+// Get question on DOM load
 document.addEventListener('DOMContentLoaded', getQuestion);
 
+// Next button click
+nextBtn.addEventListener('click', validate);
 
 
 // Functions
@@ -64,4 +68,39 @@ function hideQuestion() {
     inputProgress.style.width = 0;
     inputProgress.style.transition = 'none';
     inputGroup.style.border = null;
+}
+
+// Transform to create shake motion
+function transform(x, y) {
+    formBox.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+// Validate field
+function validate() {
+    // Ensure pattern matches if there is one
+    if (!inputField.value.match(questions[position].pattern || /.+/)) {
+        inputFail();
+    } else {
+        inputPass();
+    }
+}
+
+// Field input fail
+function inputFail() {
+    formBox.className = 'error';
+    // Repeat shake motion - set i to number of shake
+    for (let i = 0; i < 6; i++) {
+        setTimeout(transform, shakeTime * i, ((i % 2) * 2 - 1) * 20, 0);
+        setTimeout(transform, shakeTime * 6, 0, 0);
+        inputField.focus();
+    }
+}
+
+// Field input passed
+function inputPass() {
+    // Remove any error class
+    formBox.className = '';
+
+    setTimeout(transform, shakeTime * 0, 0, 10);
+    setTimeout(transform, shakeTime * 1, 0, 0);
 }
