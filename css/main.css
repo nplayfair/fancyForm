@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Pacifico|Roboto");
+@import url("https://fonts.googleapis.com/css?family=Niconne|Roboto");
 body {
   background-color: #428bca;
   font-family: 'Roboto', sans-serif;
@@ -6,7 +6,7 @@ body {
 
 h1.logo {
   color: white;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Niconne', cursive;
   font-size: 4em; }
 
 h1.end {
