@@ -19,7 +19,7 @@ h1.end {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: top;
+  justify-content: flex-start;
   align-items: center; }
 
 #form-box {
