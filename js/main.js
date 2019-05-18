@@ -53,7 +53,7 @@ function getQuestion() {
     inputField.focus();
 
     // Set progress bar width - variable to the questions length
-    progress.getElementsByClassName.width = (position * 100 ) / questions.length + '%';
+    progress.style.width = (position * 100 ) / questions.length + '%';
 
     // Add user icon or back arrow, depending on question
     prevBtn.className = position ? 'fas fa-arrow-left' : 'fas fa-user';
@@ -111,6 +111,9 @@ function inputPass() {
     setTimeout(transform, shakeTime * 0, 0, 10);
     setTimeout(transform, shakeTime * 1, 0, 0);
 
+    // Store answer in questions array
+    questions[position].answer = inputField.value;
+
     // Increment position
     position++;
 
@@ -130,3 +133,12 @@ function inputPass() {
 }
 
 // All fields complete, show h1 end
+function formComplete() {
+    const h1 = document.createElement('h1');
+    h1.classList.add('end');
+    h1.appendChild(document.createTextNode(`Thanks ${questions[0].answer}, you are now registered and will receive an email shortly.`));
+    setTimeout(() => {
+        formBox.parentElement.appendChild(h1);
+    setTimeout(() => h1.style.opacity = 1, 50);
+    }, 1000)
+}
