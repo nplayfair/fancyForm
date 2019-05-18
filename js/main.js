@@ -128,3 +128,5 @@ function inputPass() {
         formComplete();
     }
 }
+
+// All fields complete, show h1 end
